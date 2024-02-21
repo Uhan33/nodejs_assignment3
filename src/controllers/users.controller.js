@@ -1,7 +1,15 @@
+import redis from 'redis';
+
+// const redisClient = redis.createClient({
+//   password: 
+// })
+
 export class UsersController {
   constructor(usersService) {
     this.usersService = usersService;
   }
+
+
 
   signUp = async (req, res, next) => {
     try {
@@ -30,6 +38,9 @@ export class UsersController {
         throw new Error('필수 값이 입력되지 않았습니다.');
 
       const user = await this.usersService.signIn(email, password);
+
+
+
       res.cookie('authorization', `Bearer ${user.accessToken}`);
       res.cookie('refreshToken', `Bearer ${user.refreshToken}`);
 

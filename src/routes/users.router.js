@@ -1,12 +1,9 @@
 import express from 'express';
 import authMiddleware from '../middlewares/auth.middleware.js';
 import { prisma } from '../utils/prisma/index.js';
-import { Prisma } from '@prisma/client';
 import { UsersController } from '../controllers/users.controller.js';
 import { UsersService } from '../services/users.service.js';
 import { UsersRepository } from '../repositories/users.repository.js';
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
 
 const router = express.Router();
 
